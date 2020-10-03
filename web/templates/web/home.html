@@ -1,0 +1,271 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{{title}}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'web/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'web/leadership.css' %}">
+  <link rel="stylesheet" href="{% static 'web/history.css' %}">
+  <link rel="stylesheet" href="{% static 'web/animation.css' %}">
+  <script src="js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+</head>
+
+  {% block content %}
+  <!-- Page Content -->
+<section> 
+           
+    <div class="card bg-dark text-light" >
+        <img src="{% static 'web/img/pmw.jpg' %}" class="card-img"  alt="landin" style="height: 80rem;">
+        <div class="card-img-overlay align-self-center" style="text-align: right; top: 10rem;">
+          <nav class="navbar navbar-expand-lg fixed-top ">
+            <a class="navbar-brand" href="#"><img src="https://img.icons8.com/emoji/48/000000/church-emoji.png"></a>
+            
+
+            <h2 class="text-success"><i>ICC church</i></h2>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav" >
+                <ul class="navbar-nav ml-auto navbar-right">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'about' %}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'events' %}">EVENTS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="{% url 'ministries' %}">MINISTRY</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'prayer' %}">PRAYER</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link text-light" href="{% url 'gallary' %}">GALLERY</a>
+                  </li>
+                    <li>
+                    <div class="dropdown">    
+                        <button type="button" class="dropdown-toggle btn btn-info text-light" data-toggle="dropdown">
+                        Accounts
+                        </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item glyphicon glyphicon-user" href="{% url 'admin:index' %}">Admin</a>
+                        <a class="dropdown-item glyphicon glyphicon-log-in" href="{% url 'login' %}">login</a>
+                        <a class="dropdown-item glyphicon glyphicon-log-out" href="{% url 'logout' %}">logout</a>
+                    </div>
+                  </div>
+                    </li>
+                </ul>
+            </div>
+          </nav>
+          
+          <h5 class="card-title text-info display-5"><strong>Welcome to ICC church Felloship</strong></h5>
+          <p class="card-text text-info display-4">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a href="{% url 'home' %}"><button class="btn btn-outline-success text-dark">Welcome</button></a><br><br><br><br><br><br><br><br>
+          
+           <div class="d-flex align-content-start text-dark" style=" text-align:bottom ; top:30rem; ">
+            <p class="card-text">Would you like to felloship with us? </p><br>
+          <a href="{% url 'login' %}"><button class="btn btn-outline-success">Join us today</button></a>
+          
+           </div>
+          
+        </div>
+      </div>  
+</section>
+<section id="team" class="pb-5">
+  <div class="container">
+      <h5 class="pt-5 section-title h1 jumbotron text-center">Church Leadership
+        <marquee behavior="alternate" direction=""><p>It consist of our leadership trend since beginning</p></marquee>
+      </h5>
+      {% for posts in obj %}
+      <div class="row">
+                    <!--/Team member -->
+          <!-- Team member  col-xs-12 col-sm-6 col-md-4 -->
+          <div class=" col-xs-12 col-sm-6 col-md-4">
+              <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                  <div class="mainflip">
+                      <div class="frontside">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <p><img class=" img-fluid" src="{{posts.img.url}}" alt="card image"></p>
+                                  <h4 class="card-title">{{posts.name}}</h4>
+                                  <p class="card-text">{{posts.position}}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="backside">
+                          <div class="card">
+                              <div class="card-body text-center mt-4">
+                                  <!--<h4 class="card-title">Dennis kariuki</h4>
+                                  <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>-->
+                                  <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                              <i class="fa fa-facebook"></i>
+                                          </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                              <i class="fa fa-twitter"></i>
+                                          </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                              <i class="fa fa-skype"></i>
+                                          </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <a class="social-icon text-xs-center" target="_blank" href="#">
+                                              <i class="fa fa-google"></i>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+              <!-- Team member-->
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                          <div class="frontside">
+                              <div class="card">
+                                  <div class="card-body text-center">
+                                      <p><img class=" img-fluid" src="{{posts.img_1.url}}" alt="card image"></p>
+                                      <h4 class="card-title">{{posts.name_1}}</h4>
+                                      <p class="card-text">{{posts.position_1}}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="backside">
+                              <div class="card">
+                                  <div class="card-body text-center mt-4">
+                                     <!--<h4 class="card-title">Dennis kariuki</h4>
+                                      <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>-->
+                                      <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                              <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  <i class="fa fa-facebook"></i>
+                                              </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                              <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  <i class="fa fa-twitter"></i>
+                                              </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                              <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  <i class="fa fa-skype"></i>
+                                              </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                              <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  <i class="fa fa-google"></i>
+                                              </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+            
+            
+                            
+                  <!--Team member-->
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                      <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                          <div class="mainflip">
+                              <div class="frontside">
+                                  <div class="card">
+                                      <div class="card-body text-center">
+                                          <p><img class=" img-fluid" src="{{posts.img_2.url}}" alt="card image"></p>
+                                          <h4 class="card-title">{{posts.name_2}}</h4>
+                                          <p class="card-text">{{posts.position_2}}</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="backside">
+                                  <div class="card">
+                                      <div class="card-body text-center mt-4">
+                                         <!--- <h4 class="card-title">Dennis kariuki</h4>
+                                          <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>-->
+                                          <ul class="list-inline">
+                                              <li class="list-inline-item">
+                                                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  </a>
+                                              </li>
+                                              <li class="list-inline-item">
+                                                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  </a>
+                                              </li>
+                                              <li class="list-inline-item">
+                                                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  </a>
+                                              </li>
+                                              <li class="list-inline-item">
+                                                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                  </a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+        
+</section>
+  <!-- Team -->
+  <section class="row">
+    <div class="how-section1">
+               
+               <div class="col-md-6 how-img">
+                       <img src="" class="pikk3-cropper" alt="avatar"/>
+                    <div class="row">
+                   <div class="col-md-6">
+                       <h3>tryuiop[]\dfghjkljgiuho
+                       </h3>
+                                   <h4 class="subheading">uiopblkj'pl</h4>
+                   <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed rerum rem, quidem atque incidunt quos impedit distinctio libero. Aspernatur, facilis. Voluptatum recusandae quos nulla ex dolor reprehenderit ab quasi ut.</p>
+                   </div>
+               </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-6">
+                       <h4>Leadership history</h4>
+                                   <h4 class="subheading">The first leaders of our church were late Geeka Gechui,Martin and Moniccah</h4>
+                                   <p class="text-muted">They were all chosen by the members with priests' authority .</p>
+                   </div>
+                   <div class="col-md-6 how-img">
+                       <img src="pikk2.jpg" class="squa" alt=""/>
+                   </div>
+               </div>
+    
+    </section>
+   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% endblock %}
+
+
+    
+   

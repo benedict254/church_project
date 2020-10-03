@@ -1,0 +1,146 @@
+{% extends 'web/base1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>{% block title %}{{pray}}{% endblock %}</title>
+          <link rel="stylesheet" href="prayer.css">
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+     {% block content %}
+                  
+            <!-- Contact Us Section -->
+              <section class="Material-contact-section section-padding section-dark">
+                <div class="container">
+                    <div class="row">
+                        <!-- Section Titile -->
+                        <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+                            <h1 class="pt-5 section-title">SEND YOUR PRAYER REQUEST</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Section Titile -->
+                        <div class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft" data-wow-delay=".2s">
+                          <p>Salvation
+                              Christian, Salvation, Saved, Born Again and becoming a Believer are all terms that the church uses simply to convey how a person can have a relationship with God through Jesus Christ.
+                              
+                              If you want to know that you are in fellowship with God, please continue to read.
+                              
+                              Beginning a relationship with God is as easy as A. B. C.
+                              
+                              * You must Admit that you are a sinner and that you are in need of Jesus.
+                              
+                              * You must Believe that Jesus died on the cross, was buried and rose from the dead.
+                              
+                              * You must Confess with your mouth that Jesus is Lord and believe in your heart God raised
+                              
+                              Him from the dead.
+                              
+                              You do this and the Bible says you shall be saved.
+                              
+                              The words above is the simple plan you can do by faith and know you are in fellowship with God.
+                              
+                              Below we share scriptures known as the Romans Road to Salvation that you can use to hold on to as God’s promise of Salvation.
+                              
+                              
+                              </p>
+          
+                          <div class="find-widget">
+                           church:  <a href="https://hostriver.ro">HostRiver</a>
+                          </div>
+                        <!--<div class="find-widget">
+                           Address: <a href="#">4435 Berkshire Circle Knoxville</a>
+                          </div>-->
+                          <div class="find-widget">
+                            Phone:  <a href="#">+ 879-890-9767</a>
+                          </div>
+                          
+                          <div class="find-widget">
+                            Website:  <a href="https://uny.ro">www.uny.ro</a>
+                          </div>
+                          <div class="find-widget">
+                             Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
+                             <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Service</th>
+                                  <th scope="col">Act1</th>
+                                  <th scope="col">Act2</th>
+                                  <th scope="col">Act3</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">Mon</th>
+                                  <td>Praises</td>
+                                  <td>testify</td>
+                                  <td>service</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Tue</th>
+                                  <td>Praises</td>
+                                  <td>testify</td>
+                                  <td>service</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Wed</th>
+                                  <td>Praises</td>
+                                  <td>testify</td>
+                                  <td>service</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Thur</th>
+                                  <td>Praises</td>
+                                  <td>fasting</td>
+                                  <td>Service</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Fri</th>
+                                  <td colspan="2">service</td>
+                                  <td>worships</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Sat</th>
+                                  <td>Praises</td>
+                                  <td>testify</td>
+                                  <td>service</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Sun</th>
+                                  <td>Praises</td>
+                                  <td>testify</td>
+                                  <td>service</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Request</h5>
+                           <form class="form-signin" method="POST">
+                             {% csrf_token %}
+                             <div class="messages">
+                              {% if messages %}
+                              {% for message in messages %}
+                              <div class="alert {% if message.tags %} alert-{{message.tags}}{% endif %}" role="alert">
+                                   {{message}}
+                              </div>
+                              {% endfor %}
+                              {% endif %}
+                            </div>
+                             {{form|crispy}}
+                             <button type="submit" class="btn btn-success">send</button>
+                           </form>
+                        </div>
+                        
+              </section>
+              <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+              <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+             <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        {% endblock %}

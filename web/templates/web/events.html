@@ -1,0 +1,59 @@
+{% extends 'web/base1.html' %}
+{% load static %}
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>{% block title %}{{event}}{% endblock %}</title>
+          <link rel="stylesheet" href="{% static 'events.css' %}">
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+          <script src="js/bootstrap.bundle.js"></script>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+{% block content %}
+<div class="my-4 jumbotron">
+      <h3 class="text-center">Church Events</h3>
+      <marquee behavior="alternate" direction=""><p>upcoming events</p></marquee> 
+</div>
+
+<div class="row">
+  {% for img in obj %}
+  <div class="col-lg-3 col-md-4 col-6">
+    <div class="container-fluid">
+      <img class="card-img-top" src="{{img.image.url}}"width="200" height="150" alt="">
+      <div class="card-body">
+        <h4 class="card-title">
+          {{img.title}}
+        </h4>
+        <p class="card-text">{{img.text}}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% if is_paginated %}
+
+{% if page_obj.has_previous %}
+   <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+   <a class="btn btn-outline-info mb-4" href="?page={{page_obj.previous_page_number}}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+
+   {% if page_obj.number == num %}
+     <a class="btn btn-info mb-4" href="?page={{num}}">{{num}}</a>
+   {% elif num > page_obj.numbers|add:'-3' and num < page_obj.number|add:'3' %}
+     <a class="btn btn-outline-info mb-4" href="?page={{num}}">{{num}}</a>
+   {% endif %}
+
+{% endfor %}
+
+{% if page_obj.has_next %}
+   <a class="btn btn-outline-info mb-4" href="?page={{page_obj.next_page_number}}">Next</a>
+   <a class="btn btn-outline-info mb-4" href="?page={{page_obj.paginator.num_pages}}">Last</a>
+{% endif %}
+
+{% endif %}
+{% endblock %} 
